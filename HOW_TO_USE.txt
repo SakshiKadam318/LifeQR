@@ -1,0 +1,61 @@
+==========================================
+  LIFEQR - HOW TO USE
+==========================================
+
+FIRST TIME SETUP (do this only once):
+--------------------------------------
+1. Double-click:  INSTALL.bat
+   Wait for it to finish (2-5 minutes)
+   It installs everything automatically.
+
+
+EVERY DAY USE:
+--------------
+To START the app:
+   Double-click:  LifeQR.vbs
+   (No black windows! Browser opens by itself)
+
+   OR if VBS doesn't work:
+   Double-click:  START_LIFEQR.bat
+
+
+To STOP the app:
+   Double-click:  STOP_LIFEQR.bat
+
+
+To OPEN in browser anytime:
+   Go to:  http://localhost:3000
+
+
+==========================================
+  FILES IN THIS FOLDER
+==========================================
+
+INSTALL.bat       - Run ONCE to install
+LifeQR.vbs        - START silently (no windows)
+START_LIFEQR.bat  - START with window
+STOP_LIFEQR.bat   - STOP the app
+README.md         - Full documentation
+
+backend/          - Server code
+frontend/         - App code (what you see)
+
+
+==========================================
+  PROBLEMS?
+==========================================
+
+App not opening?
+  - Run INSTALL.bat again
+  - Make sure Node.js is installed
+    Download: https://nodejs.org
+
+Port already in use error?
+  - Run STOP_LIFEQR.bat first
+  - Then START again
+
+Browser shows error?
+  - Wait 15 seconds after starting
+  - Then refresh the page (F5)
+
+==========================================

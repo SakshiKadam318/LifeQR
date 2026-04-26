@@ -1,0 +1,16 @@
+
+> lifeqr-backend@1.0.0 dev
+> nodemon src/index.js
+
+[33m[nodemon] 3.1.14[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[32m[nodemon] starting `node src/index.js`[39m
+✅ Database connected successfully
+LifeQR backend running on port 5000
+TOKEN RECEIVED: 5ef89990-15d6-4ec5-a7d6-5399dd2a7e49
+TOKEN RECEIVED: 5ef89990-15d6-4ec5-a7d6-5399dd2a7e49
+TOKEN RECEIVED: ee98944c-3ff9-4736-872a-ab17bb67b37d
+TOKEN RECEIVED: 98b8f518-bea5-4658-9e34-e548ac18aeae
+TOKEN RECEIVED: 9ee65b2c-7787-4728-831b-2925f9ce69e4

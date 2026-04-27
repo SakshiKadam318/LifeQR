@@ -14,3 +14,89 @@ TOKEN RECEIVED: 5ef89990-15d6-4ec5-a7d6-5399dd2a7e49
 TOKEN RECEIVED: ee98944c-3ff9-4736-872a-ab17bb67b37d
 TOKEN RECEIVED: 98b8f518-bea5-4658-9e34-e548ac18aeae
 TOKEN RECEIVED: 9ee65b2c-7787-4728-831b-2925f9ce69e4
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/index.js`[39m
+node:internal/modules/cjs/loader:1210
+  throw err;
+  ^
+
+Error: Cannot find module 'better-sqlite3'
+Require stack:
+- C:\Users\saksh\Downloads\lifeqr-v2-final\backend\src\models\db.js
+- C:\Users\saksh\Downloads\lifeqr-v2-final\backend\src\routes\auth.js
+- C:\Users\saksh\Downloads\lifeqr-v2-final\backend\src\index.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+    at Module._load (node:internal/modules/cjs/loader:1038:27)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (C:\Users\saksh\Downloads\lifeqr-v2-final\backend\src\models\db.js:1:18)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\saksh\\Downloads\\lifeqr-v2-final\\backend\\src\\models\\db.js',
+    'C:\\Users\\saksh\\Downloads\\lifeqr-v2-final\\backend\\src\\routes\\auth.js',
+    'C:\\Users\\saksh\\Downloads\\lifeqr-v2-final\\backend\\src\\index.js'
+  ]
+}
+
+Node.js v20.20.2
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/index.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/index.js`[39m
+node:internal/modules/cjs/loader:1210
+  throw err;
+  ^
+
+Error: Cannot find module 'better-sqlite3'
+Require stack:
+- C:\Users\saksh\Downloads\lifeqr-v2-final\backend\src\models\db.js
+- C:\Users\saksh\Downloads\lifeqr-v2-final\backend\src\routes\auth.js
+- C:\Users\saksh\Downloads\lifeqr-v2-final\backend\src\index.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+    at Module._load (node:internal/modules/cjs/loader:1038:27)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (C:\Users\saksh\Downloads\lifeqr-v2-final\backend\src\models\db.js:1:18)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\saksh\\Downloads\\lifeqr-v2-final\\backend\\src\\models\\db.js',
+    'C:\\Users\\saksh\\Downloads\\lifeqr-v2-final\\backend\\src\\routes\\auth.js',
+    'C:\\Users\\saksh\\Downloads\\lifeqr-v2-final\\backend\\src\\index.js'
+  ]
+}
+
+Node.js v20.20.2
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/index.js`[39m
+C:\Users\saksh\Downloads\lifeqr-v2-final\backend\src\models\db.js:111
+module.exports = db;const sqlite3 = require('sqlite3').verbose();
+                          ^
+
+SyntaxError: Identifier 'sqlite3' has already been declared
+    at wrapSafe (node:internal/modules/cjs/loader:1464:18)
+    at Module._compile (node:internal/modules/cjs/loader:1495:20)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at require (node:internal/modules/helpers:182:18)
+    at Object.<anonymous> (C:\Users\saksh\Downloads\lifeqr-v2-final\backend\src\routes\auth.js:3:12)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+
+Node.js v20.20.2
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m

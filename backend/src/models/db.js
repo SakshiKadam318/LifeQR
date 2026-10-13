@@ -1,4 +1,4 @@
-```javascript
+
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const fs = require('fs');
@@ -8,61 +8,62 @@ const dbPath =
   process.env.DB_PATH ||
   path.join(__dirname, '../../../data/users.db');
 
-// Ensure the database directory exists
-fs.mkdirSync(path.dirname(dbPath), { recursive: true });
+// Create database directory if it does not exist
+try {
+  fs.mkdirSync(path.dirname(dbPath), { recursive: true });
+} catch (err) {
+  console.error('Failed to create database directory:', err.message);
+  throw err;
+}
 
-// Connect to SQLite database
+// Connect to SQLite
 const db = new sqlite3.Database(dbPath, (err) => {
   if (err) {
     console.error('Database connection error:', err.message);
-  } else {
-    console.log('Database connected successfully');
+    return;
   }
+
+  console.log('Database connected successfully');
+
+  db.run('PRAGMA foreign_keys = ON', (pragmaErr) => {
+    if (pragmaErr) {
+      console.error('Foreign key setup error:', pragmaErr.message);
+    }
+  });
 });
 
-// Enable SQLite settings
-db.run('PRAGMA foreign_keys = ON');
-
-// Promise helper: INSERT, UPDATE, DELETE
+// Run INSERT, UPDATE and DELETE queries
 db.asyncRun = (sql, params = []) =>
   new Promise((resolve, reject) => {
     db.run(sql, params, function (err) {
-      if (err) {
-        reject(err);
-      } else {
-        resolve({
-          lastID: this.lastID,
-          changes: this.changes,
-        });
-      }
+      if (err) return reject(err);
+
+      resolve({
+        lastID: this.lastID,
+        changes: this.changes,
+      });
     });
   });
 
-// Promise helper: SELECT one row
+// Fetch one row
 db.asyncGet = (sql, params = []) =>
   new Promise((resolve, reject) => {
     db.get(sql, params, (err, row) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(row);
-      }
+      if (err) return reject(err);
+      resolve(row);
     });
   });
 
-// Promise helper: SELECT multiple rows
+// Fetch multiple rows
 db.asyncAll = (sql, params = []) =>
   new Promise((resolve, reject) => {
     db.all(sql, params, (err, rows) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(rows);
-      }
+      if (err) return reject(err);
+      resolve(rows);
     });
   });
 
-// Create database tables
+// Create all database tables
 db.serialize(() => {
   db.run(`
     CREATE TABLE IF NOT EXISTS users (
@@ -130,6 +131,5 @@ db.serialize(() => {
   `);
 });
 
-// Export database connection
+// Export the database connection
 module.exports = db;
-```

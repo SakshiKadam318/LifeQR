@@ -15,7 +15,6 @@ require('./models/db');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// CORS configuration
 const allowedOrigins = [
   'https://lifeqr-frontend.onrender.com',
   'http://localhost:3000',
@@ -24,13 +23,12 @@ const allowedOrigins = [
 
 const corsOptions = {
   origin: function (origin, callback) {
-    // Allow requests without an Origin header and approved frontends
     if (!origin || allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
 
     console.error('Blocked CORS origin:', origin);
-    return callback(new Error('Origin not allowed by CORS'));
+    return callback(null, false);
   },
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
@@ -38,9 +36,8 @@ const corsOptions = {
   optionsSuccessStatus: 204
 };
 
-// Middleware: CORS must come before API routes
+// CORS must be before all API routes
 app.use(cors(corsOptions));
-app.options(/.*/, cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -65,7 +62,7 @@ app.use('/api/profile', profileRoutes);
 app.use('/api/qr', qrRoutes);
 app.use('/api/public', publicRoutes);
 
-// Handle unknown API routes
+// Unknown API routes
 app.use('/api', (req, res) => {
   res.status(404).json({
     success: false,
@@ -75,7 +72,7 @@ app.use('/api', (req, res) => {
 
 // Global error handler
 app.use((err, req, res, next) => {
-  console.error('Request error:', err.message);
+  console.error('Request error:', err.stack || err.message);
 
   if (res.headersSent) {
     return next(err);
@@ -83,10 +80,7 @@ app.use((err, req, res, next) => {
 
   res.status(err.status || 500).json({
     success: false,
-    message:
-      err.message === 'Origin not allowed by CORS'
-        ? 'Origin not allowed by CORS'
-        : 'Internal server error'
+    message: 'Internal server error'
   });
 });
 
